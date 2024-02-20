@@ -9,6 +9,7 @@ In this project, you'll be creating a frontend that graphically displays train i
 - Navigate to your new project folder and run:
   - `npx create-react-app marta-interface`
 - Create a `pages` and `components` directories in the `src` directory
+- Run `npm start` to start your web app
 - Remember, you can ignore all the template files in src except `App.js` and `App.css`
 
 ## Submission
