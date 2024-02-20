@@ -45,7 +45,7 @@ We are going to incorporate state to render the page based on each train line. C
 
 ### Dynamic data and `useEffect`
 
-We are no longer using static data! Instead, we are calling this URL: "TBD". You can get the filtered trains for each line using this link by adding "TBD"; for example, to get the trains from the gold line, call "TBD". 
+For this project, we are calling this URL: "TBD". You can get the filtered trains for each line using this link by adding "TBD"; for example, to get the trains from the gold line, call "TBD". 
 
 To get data for stations, you can use "TBD"; for example, to get the stations from the gold line, you can call "TBD"
 
