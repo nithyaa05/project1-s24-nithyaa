@@ -46,9 +46,9 @@ We are going to incorporate state to render the page based on each train line. C
 
 ### Dynamic data and `useEffect`
 
-For this project, we are calling this URL: "TBD". You can get the filtered trains for each line using this link by adding "TBD"; for example, to get the trains from the gold line, call "TBD". 
+For this project, we are calling this URL: "https://midsem-bootcamp-api.onrender.com". You can get the filtered trains for each line using this link by adding "https://midsem-bootcamp-api.onrender.com/arrivals/{LINE_COLOR}"; for example, to get the trains from the gold line, call "https://midsem-bootcamp-api.onrender.com/arrivals/gold". 
 
-To get data for stations, you can use "TBD"; for example, to get the stations from the gold line, you can call "TBD"
+To get data for stations, you can use "https://midsem-bootcamp-api.onrender.com/stations/{LINE_COLOR}"; for example, to get the stations from the gold line, you can call "https://midsem-bootcamp-api.onrender.com/stations/gold".
 
 *Important note:* Previously, we learned how to call from an API using fetch(); however, React can have issues with rendering using fetch as if the called data has not arrived yet but is being asked to be displayed there will be an issue. To handle this we will incorporate useEffect()! We will have two states added to LinesPage.js: loading and data, dafaultly set to true and null. Then, we will add useEffect() below like so (where the line in the URL is a variable that changes based on the current state of the line from the line buttons):
 ```
@@ -59,10 +59,11 @@ useEffect(() => {
         .then(data => setData(data))
       },[])
 ```
+*Another important note:* When calling the API, there might me some periods of time when it is down, meaning you might get a 'Fetch Error' even when your fetched URL is correct. Please wait 15-30 seconds before attempting to fetch again. This is due to our hosting server being on a free tier 😔. If you still receive an error after waiting, please look at your code to see if there are any errors in the URL you are fetching!
 
 ### More filtering
 
-Make it so that when you click on a station in the navbar, it will become highlighted, and the trains displayed are filtered to display only those currently approaching that station, so for Doraville, we only want trains with `TBD`.
+Make it so that when you click on a station in the navbar, it will become highlighted, and the trains displayed are filtered to display only those currently approaching that station, so for Doraville, we only want trains with `{"STATION": "DORAVILLE"}`.
 
 When a button is clicked it will filter the trains by the filter titled on the button. When a button is 'on', and clicked again, the filter will go away. More than one button can be used to filter the data at a time, so make it identifiable that a button is currently "on" (you could do this by making the button color faded if it is on).
 
@@ -73,7 +74,7 @@ As a bonus, once the rest of the code displays successfully, we recommend incorp
 - Create a Train.js component inside the components folder that displays the information for each train, and a TrainList.js component that displays the train data for a specified line
 - In App.js, display the LinesPage.js page
 - For each line's page, display each train's data by feeding each entry in the filtered array into the Train.js component as props.
-- Call the MARTA API by fetching from the link provided: TBD
+- Call the MARTA API by fetching from the link provided: "https://midsem-bootcamp-api.onrender.com"
 - Incorporate state buttons to display trains based on each line color (gold, red, green blue)
 - Make the navbar functional so that the trains are filtered by one station at a time
 - Make the four buttons functional so that the trains are filtered by one or more buttons at a time ("Arriving", "Scheduled", "Northbound/Southbound" or "Eastbound/Westbound")
