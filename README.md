@@ -84,7 +84,9 @@ As a bonus, once the rest of the code displays successfully, we recommend incorp
 ## Display Example
 
 **GOLD**
+
 <img src="https://github.com/BoG-Dev-Bootcamp-S24/project1-s24/blob/main/assets/gold_page.png" alt="Example Gold Line" width="500"></img>
 
 **GREEN**
+
 <img src="https://github.com/BoG-Dev-Bootcamp-S24/project1-s24/blob/main/assets/green_page.png" alt="Example Green Line" width="500"></img>
