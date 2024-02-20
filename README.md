@@ -82,7 +82,7 @@ As a bonus, once the rest of the code displays successfully, we recommend incorp
   - Responsiveness
 
 ## Display Example
-These are just example designs for this project! You can follow these designs as closely as you want or come up with your own, **BUT** they must have the required elements for this assignment!
+These are just example designs for this project! You can follow these designs as closely as you want or come up with your own, **BUT** they must have the required elements and functionalities for this assignment!
 
 
 **GOLD**
