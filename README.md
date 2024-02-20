@@ -35,7 +35,7 @@ Within the TrainList.js component, the data should be filtered to only return in
 
 In the components folder, create a Train.js file. In this file you can create the design for an exportable Train component that takes in the data for one train and returns the display for it. To display whether or not a train is On Time or Delayed check if DELAY === "T0S" (if the equality is true, it is on time, and if not, we consider it delayed). Display each of the train components for the specified line (first make sure to import the Train component into the file). Hint: You do not need to display each component manually as the number of trains in a line or subject to change. Instead you can use the map and spread functions you learned in Exercise 4 to take in the props at each index and display a component for each train's props.
 
-We can create a Navbar.js file in components. This will contain an exportable navbar display component, which we can import into LinesPage.js.
+We can create a Navbar.js file in components. This will contain an exportable navbar display component, which we can import into LinesPage.js. The navbar component will be displayed with the props for their specific lines.
 
 We also want four filter buttons to be displayed titled 'Arriving', 'Scheduled', 'Northbound', and 'Southbound' on each of the pages. For the green and blue lines, use 'Eastbound' and 'Westbound' instead of 'Northbound' and 'Southbound'.
 
