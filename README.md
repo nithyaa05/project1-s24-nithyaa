@@ -61,7 +61,7 @@ useEffect(() => {
 
 ### More filtering
 
-Make it so that when you click on a station in the navbar, it will become highlighted, and the trains displayed are filtered to display only those currently approaching that station, so for Doraville, we only want trains with `{"STATION": "DORAVILLE"}`.
+Make it so that when you click on a station in the navbar, it will become highlighted, and the trains displayed are filtered to display only those currently approaching that station, so for Doraville, we only want trains with `TBD`.
 
 When a button is clicked it will filter the trains by the filter titled on the button. When a button is 'on', and clicked again, the filter will go away. More than one button can be used to filter the data at a time, so make it identifiable that a button is currently "on" (you could do this by making the button color faded if it is on).
 
