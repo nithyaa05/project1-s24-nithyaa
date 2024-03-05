@@ -1,30 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const NavBar = ({ color, onLineChange }) => {
-  const handleLineClick = (newColor) => {
-    onLineChange(newColor);
-  };
-
-  const lineColors = {
-    gold: 'rgba(255, 220, 0, 0.40)',
-    red: 'rgba(183, 0, 0, 0.40)',
-    green: 'rgba(0, 183, 0, 0.40)',
-    blue: 'rgba(0, 0, 183, 0.40)',
-    gray: 'rgba(0, 0, 0, 0.40)'
-  };
-
+const Navbar = () => {
   return (
     <nav>
-      <div className="nav-buttons"> 
-        <button onClick={() => handleLineClick('gold')} style={{ background: color === 'gold' ? lineColors.gold : lineColors.gray }}>Gold Line</button>
-        <button onClick={() => handleLineClick('red')} style={{ background: color === 'red' ? lineColors.red : lineColors.gray }}>Red Line</button>
-        <button onClick={() => handleLineClick('green')} style={{ background: color === 'green' ? lineColors.green : lineColors.gray }}>Green Line</button>
-        <button onClick={() => handleLineClick('blue')} style={{ background: color === 'blue' ? lineColors.blue : lineColors.gray }}>Blue Line</button>
-      </div>
-      <div className="line-color-display" style={{ background: lineColors[color] }}>
-      </div>
+      <Link to="/lines/gold">Gold Line</Link>
+      <Link to="/lines/green">Green Line</Link>
+      <Link to="/lines/blue">Blue Line</Link>
+      <Link to="/about">About</Link>
     </nav>
   );
 };
 
-export default NavBar;
+export default Navbar;

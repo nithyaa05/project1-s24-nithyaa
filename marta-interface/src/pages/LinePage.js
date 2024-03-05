@@ -1,61 +1,58 @@
 import React, { useState, useEffect } from 'react';
-import NavBar from "/Users/nithyaab/Documents/GitHub/project1-s24-nithyaa/marta-interface/src/components/NavBar.js";
-import TrainList from "/Users/nithyaab/Documents/GitHub/project1-s24-nithyaa/marta-interface/src/components/TrainList.js";
-import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
+import TrainList from '../components/TrainList';
 
- function LinesPage() {
-  const { color } = useParams(); 
-  const [currColor, setCurrColor] = useState(color);
-  const [stationData, setStationData] = useState([]);
-  const [trainData, setTrainData] = useState([]);
+const LinesPage = () => {
+  // State variables
+  const [currColor, setCurrColor] = useState('gold');
   const [loading, setLoading] = useState(true);
-  
-  //const [stationFilter, setStationFilter] = useState(null);
+  const [data, setData] = useState(null);
+  const [stationFilter, setStationFilter] = useState(null);
+  const [filterButtons, setFilterButtons] = useState({
+    arriving: false,
+    scheduled: false,
+    northbound: true,
+    southbound: true,
+    eastbound: true,
+    westbound: true,
+  });
 
+  // API Fetching
   useEffect(() => {
     const fetchData = async () => {
-      setLoading(true);
-  
       try {
-        const stationResponse = await fetch(`https://midsem-bootcamp-api.onrender.com/stations/${currColor}`);
-        const stationData = await stationResponse.json();
-        setStationData(stationData);
-  
-        const arrivalsResponse = await fetch(`https://midsem-bootcamp-api.onrender.com/arrivals/${currColor}`);
-        const trainData = await arrivalsResponse.json();
-        setTrainData(trainData);
-  
+        setLoading(true);
+        const response = await fetch(`https://midsem-bootcamp-api.onrender.com/arrivals/${currColor}`);
+        const result = await response.json();
+        setData(result);
         setLoading(false);
       } catch (error) {
         console.error('Error fetching data:', error);
-        setLoading(false);
+        // Handle error and update state accordingly
       }
     };
-  
-    fetchData(); // Call the async function
-  
+
+    fetchData();
   }, [currColor]);
 
-  const colorChange = (color) =>{
-    setCurrColor(color);
-  }
-  
-
+  // Rendering
   return (
     <div>
-      <div >
-            <button class="button" style={{backgroundColor: 'gold'}} onClick={() => setCurrColor('gold')}>Gold</button>
-            <button class="button" style={{backgroundColor: 'red'}} onClick={() => setCurrColor('red')}>Red</button>
-            <button class="button" style={{backgroundColor: 'blue'}} onClick={() => setCurrColor('blue')}>Blue</button>
-            <button class="button" style={{backgroundColor: 'green'}} onClick={() => setCurrColor('green')}>Green</button>
-        </div>
-        <NavBar color={currColor} data={stationData} />
+      {/* Conditional rendering based on loading state */}
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <>
+          {/* Render Navbar or include buttons here */}
+          <TrainList
+            color={currColor}
+            data={data}
+            stationFilter={stationFilter}
+            filterButtons={filterButtons}
+          />
+        </>
+      )}
     </div>
   );
-}
+};
 
 export default LinesPage;
-
-
-//<NavBar color={currColor} data={stationData} />
-//<TrainList color={currColor} data={trainData} loading={loading} />
